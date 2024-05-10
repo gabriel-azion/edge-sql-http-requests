@@ -1,0 +1,61 @@
+@token = yourtoken
+POST  https://api.azion.com/v4/edge_sql/databases HTTP/1.1
+Authorization: Token {{token}}
+Content-Type: application/json
+
+{
+    "name": "dbdofran2"
+}
+
+###
+
+GET https://api.azion.com/v4/edge_sql/databases HTTP/1.1
+Authorization: Token {{token}}
+
+###
+
+GET https://api.azion.com/v4/edge_sql/databases/{db_id} HTTP/1.1
+Authorization: Token {{token}}
+
+###
+
+DELETE https://api.azion.com/v4/edge_sql/databases/{db_id} HTTP/1.1
+Authorization: Token {{token}}
+
+###
+
+POST https://api.azion.com/v4/edge_sql/databases/{db_id}/query HTTP/1.1
+Authorization: Token {{token}}
+Content-Type: application/json
+
+{
+    "statements": [
+        "CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT NOT NULL);"
+    ]
+}
+
+###
+
+POST https://api.azion.com/v4/edge_sql/databases/{db_id}/query HTTP/1.1
+Authorization: Token {{token}}
+Content-Type: application/json
+
+{
+    "statements": [
+        "INSERT INTO users VALUES (1, 'França');",
+        "INSERT INTO users VALUES (2, 'Mari');",
+        "INSERT INTO users VALUES (3, 'Hannah');"
+    ]
+}
+
+###
+
+POST https://api.azion.com/v4/edge_sql/databases/{db_id}/query HTTP/1.1
+Authorization: Token {{token}}
+Content-Type: application/json
+
+{
+    "statements": [
+        "SELECT * FROM users;"
+    ]
+}
